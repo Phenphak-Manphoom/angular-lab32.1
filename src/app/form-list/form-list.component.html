@@ -1,0 +1,26 @@
+<form [formGroup]="form" style="width: 50%; margin-left: 50px; margin-top: 50px;">
+    <div class="mb-3">
+        <label><b>Name</b></label>
+        <span style="color: red;">*</span>
+        <input class="form-control" formControlName="name" placeholder="Your answer">
+
+    </div>
+    <div class="mb-3">
+        <label><b>Email</b></label>
+        <span style="color: red;">*</span>
+
+        <input type="email" class="form-control" formControlName="email" placeholder="Your answer">
+        <span style="color: red;" *ngIf="form.get('email').errors?.email">Email is invalid</span>
+    </div>
+    <div class="mb-3">
+        <label><b>Postal Address</b></label>
+        <span style="color: red;">*</span>
+        <input class="form-control" formControlName="postalAddress" placeholder="Your answer">
+
+    </div>
+    <div class="mb-3">
+        <label><b>Comment</b></label>
+        <input class="form-control" formControl="comment" placeholder="Your answer">
+    </div>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="submitForm()">SUBMIT</button>
+</form>
